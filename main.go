@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	plugin.ServePlugin("sgs", &service.SGSServer{})
+	plugin.ServePlugin("sgs", service.NewSgs())
 }

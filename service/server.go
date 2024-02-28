@@ -9,7 +9,15 @@ var _ proto.PluginXServer = (*SGSServer)(nil)
 type SGSServer struct {
 }
 
-func (S SGSServer) GetPluginInfo(remote proto.CardXClient, req *proto.GetPluginInfoReq, resp *proto.GetPluginInfoResp) {
+func (s *SGSServer) ListMode(remote proto.CardXClient, req *proto.ListMode_Req, resp *proto.ListMode_Resp) {
+	resp.Infos = []*proto.ModeInfo{
+		{
+			Name: "单挑",
+		},
+	}
+}
+
+func (s *SGSServer) GetPluginInfo(remote proto.CardXClient, req *proto.GetPluginInfo_Req, resp *proto.GetPluginInfo_Resp) {
 	resp.Info = &proto.PluginInfo{
 		Version: &proto.Version{
 			Major: 0,

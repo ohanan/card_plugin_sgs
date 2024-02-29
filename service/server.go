@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/ohanan/card_proto/pkg/protoservice"
+	"github.com/ohanan/card_proto/pkg/protoservice/proto"
 )
 
 func NewSgs() protoservice.PluginXServer {
@@ -11,7 +12,12 @@ func NewSgs() protoservice.PluginXServer {
 type SgsServer struct {
 }
 
-func (s *SgsServer) GetPluginInfo(remote protoservice.CardXClient, req *protoservice.GetPluginInfo_Req, resp *protoservice.GetPluginInfo_Resp) {
+func (s *SgsServer) StartMode(helper *protoservice.Helper, req *proto.StartMode_Req, resp *proto.StartMode_Resp) {
+	// TODO implement me
+	panic("implement me")
+}
+
+func (s *SgsServer) GetPluginInfo(helper *protoservice.Helper, req *proto.GetPluginInfo_Req, resp *proto.GetPluginInfo_Resp) {
 	resp.Info = &proto.PluginInfo{
 		Version: &proto.Version{
 			Major: 0,
@@ -21,5 +27,11 @@ func (s *SgsServer) GetPluginInfo(remote protoservice.CardXClient, req *protoser
 		Author:      "ohanan",
 		Name:        "sgs",
 		Description: "sgs",
+		Modes: []*proto.ModeInfo{
+			{
+				Name:        "",
+				Description: "",
+			},
+		},
 	}
 }

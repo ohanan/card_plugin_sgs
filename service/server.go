@@ -1,17 +1,17 @@
 package service
 
 import (
-	"github.com/ohanan/card_proto/pkg/proto"
+	"github.com/ohanan/card_proto/pkg/protoservice"
 )
 
-func NewSgs() proto.PluginXServer {
+func NewSgs() protoservice.PluginXServer {
 	return &SgsServer{}
 }
 
 type SgsServer struct {
 }
 
-func (s *SgsServer) GetPluginInfo(remote proto.CardXClient, req *proto.GetPluginInfo_Req, resp *proto.GetPluginInfo_Resp) {
+func (s *SgsServer) GetPluginInfo(remote protoservice.CardXClient, req *protoservice.GetPluginInfo_Req, resp *protoservice.GetPluginInfo_Resp) {
 	resp.Info = &proto.PluginInfo{
 		Version: &proto.Version{
 			Major: 0,

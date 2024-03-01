@@ -13,8 +13,7 @@ type SgsServer struct {
 }
 
 func (s *SgsServer) StartMode(helper *protoservice.Helper, req *proto.StartMode_Req, resp *proto.StartMode_Resp) {
-	// TODO implement me
-	panic("implement me")
+	go NewGame1V1(helper, req.Seed).Start()
 }
 
 func (s *SgsServer) GetPluginInfo(helper *protoservice.Helper, req *proto.GetPluginInfo_Req, resp *proto.GetPluginInfo_Resp) {

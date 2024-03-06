@@ -18,9 +18,9 @@ type Game1V1 struct {
 }
 
 func (g *Game1V1) Start() {
-	if g.isFirstHand() {
-
-	}
+	g.start()
+}
+func (g *Game1V1) start() {
 }
 
 func (g *Game1V1) isFirstHand() bool {
@@ -30,7 +30,7 @@ func (g *Game1V1) isFirstHand() bool {
 		random
 	)
 selectFirstHand:
-	result := g.AskAction([]*proto.Action{
+	result := g.AskAction("", []*proto.Action{
 		(&proto.Action{}).WithCard(&proto.Action_SelectCard{
 			Options: []*proto.Action_SelectCard_Option{
 				{

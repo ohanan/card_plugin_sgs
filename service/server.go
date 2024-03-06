@@ -12,7 +12,7 @@ func NewSgs() protoservice.PluginXServer {
 type SgsServer struct {
 }
 
-func (s *SgsServer) StartMode(helper *protoservice.Helper, req *proto.StartMode_Req, resp *proto.StartMode_Resp) {
+func (s *SgsServer) StartGame(helper *protoservice.Helper, req *proto.StartGame_Req, resp *proto.StartGame_Resp) {
 	go NewGame1V1(helper, req.Seed).Start()
 }
 
@@ -26,11 +26,5 @@ func (s *SgsServer) GetPluginInfo(helper *protoservice.Helper, req *proto.GetPlu
 		Author:      "ohanan",
 		Name:        "sgs",
 		Description: "sgs",
-		Modes: []*proto.ModeInfo{
-			{
-				Name:        "",
-				Description: "",
-			},
-		},
 	}
 }
